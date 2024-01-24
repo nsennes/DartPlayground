@@ -32,10 +32,10 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "cupertino_icons",
-      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/cupertino_icons-1.0.6",
+      "name": "english_words",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/english_words-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
@@ -86,8 +86,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///C:/Users/USER/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -146,13 +158,13 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "counter",
+      "name": "namer_app",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-22T07:23:39.130572Z",
+  "generated": "2024-01-24T02:08:02.493949Z",
   "generator": "pub",
   "generatorVersion": "3.2.4"
 }
