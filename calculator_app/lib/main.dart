@@ -51,6 +51,17 @@ class _HomePageState extends State<HomePage> {
     'ANS',
     '=',
   ];
+  var question = '';
+  var answer = 'answer';
+
+  String operations(String x) {
+    if (x == 'C') {
+      setState(() {
+        question = '';
+      });
+    }
+    return question;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +70,35 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Expanded(
-            child: Container(),
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                      padding: EdgeInsets.all(25),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        question,
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 90, 65, 44),
+                            fontSize: 35,
+                            fontWeight: FontWeight.w500),
+                      )),
+                  Container(
+                      padding: EdgeInsets.all(25),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        answer,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ))
+                ],
+              ),
+            ),
           ),
           Expanded(
             flex: 2,
@@ -70,6 +109,12 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCount: 4),
                 itemBuilder: (BuildContext context, int index) {
                   return MyButton(
+                    buttonTapped: () {
+                      setState(() {
+                        question += buttons[index];
+                        operations(buttons[index]);
+                      });
+                    },
                     buttonText: buttons[index],
                     color: isOperator(buttons[index])
                         ? operatorButtons
