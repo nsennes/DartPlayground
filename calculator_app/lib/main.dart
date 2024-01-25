@@ -53,38 +53,15 @@ class _HomePageState extends State<HomePage> {
   ];
   var question = '';
   var answer = 'answer';
-  var firstNumber = '';
-  int indexOfOperand = 0;
-
-  String extractNumber(String x) {
-    if ((question.contains("+") ||
-            question.contains("-") ||
-            question.contains("*") ||
-            question.contains("/") ||
-            question.contains("%")) &&
-        (x == '%' || x == '/' || x == 'x' || x == '-' || x == '+')) {
-      setState(() {
-        indexOfOperand = question.indexOf(x);
-        firstNumber = question.substring(0, indexOfOperand);
-      });
-    }
-    return firstNumber;
-  }
 
   String operations(String x) {
     if (x == 'C') {
       setState(() {
         question = '';
       });
-    } else if (question.contains("+") && x == '+') {
+    } else if (x == 'DEL') {
       setState(() {
-        // int indexOfPlus = question.indexOf("+");
-        // firstNumber = question.substring(0, indexOfPlus);
-        // question = '';
-        // question = "$firstNumber+";
-        extractNumber(x);
-        print(firstNumber);
-        print(question);
+        question = question.substring(0, question.length - 1);
       });
     }
     return question;
@@ -138,8 +115,12 @@ class _HomePageState extends State<HomePage> {
                   return MyButton(
                     buttonTapped: () {
                       setState(() {
-                        question += buttons[index];
-                        operations(buttons[index]);
+                        if (buttons[index] == 'DEL') {
+                          operations(buttons[index]);
+                        } else {
+                          question += buttons[index];
+                          operations(buttons[index]);
+                        }
                       });
                     },
                     buttonText: buttons[index],
