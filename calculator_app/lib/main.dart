@@ -2,6 +2,7 @@
 
 import 'package:calculator_app/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,12 +53,13 @@ class _HomePageState extends State<HomePage> {
     '=',
   ];
   var question = '';
-  var answer = 'answer';
+  var answer = '';
 
-  String operations(String x) {
+  String otherOperations(String x) {
     if (x == 'C') {
       setState(() {
         question = '';
+        answer = '';
       });
     } else if (x == 'DEL') {
       setState(() {
@@ -65,6 +67,23 @@ class _HomePageState extends State<HomePage> {
       });
     }
     return question;
+  }
+
+  String equalPressed(String x) {
+    setState(() {
+      String finalQuestion = question;
+      finalQuestion = finalQuestion.replaceAll('x', '*');
+      Parser p = Parser();
+      Expression exp = p.parse(finalQuestion);
+      ContextModel cm = ContextModel();
+      double eval = exp.evaluate(EvaluationType.REAL, cm);
+      if (eval % 1 == 0) {
+        answer = eval.toInt().toString();
+      } else {
+        answer = eval.toString();
+      }
+    });
+    return answer;
   }
 
   @override
@@ -82,23 +101,27 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                   ),
                   Container(
-                      padding: EdgeInsets.all(25),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 50),
                       alignment: Alignment.centerRight,
                       child: Text(
                         question,
                         style: TextStyle(
                             color: Color.fromARGB(255, 90, 65, 44),
-                            fontSize: 35,
+                            fontFamily: 'Roboto',
+                            fontSize: 40,
                             fontWeight: FontWeight.w500),
                       )),
                   Container(
-                      padding: EdgeInsets.all(25),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 3),
                       alignment: Alignment.centerRight,
                       child: Text(
                         answer,
                         style: TextStyle(
-                          fontSize: 18,
-                        ),
+                            color: Color.fromARGB(255, 132, 116, 103),
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500),
                       ))
                 ],
               ),
@@ -116,10 +139,12 @@ class _HomePageState extends State<HomePage> {
                     buttonTapped: () {
                       setState(() {
                         if (buttons[index] == 'DEL') {
-                          operations(buttons[index]);
+                          otherOperations(buttons[index]);
+                        } else if (buttons[index] == '=') {
+                          equalPressed(buttons[index]);
                         } else {
                           question += buttons[index];
-                          operations(buttons[index]);
+                          otherOperations(buttons[index]);
                         }
                       });
                     },
