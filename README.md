@@ -1,15 +1,15 @@
-# FlutterPlayground
+# 🌱 FlutterPlayground
 Welcome to my Flutter projects repository!🥳✨️ 
 
 This repository is dedicated to storing various Flutter applications and projects that I've developed for class assignments, self-study, and to gain a deeper understanding of the Flutter framework.
 
-## Overview
+## 🌐 Overview
 In this repository, you'll find a collection of Flutter apps organized into different directories. Each directory corresponds to a specific project, class assignment, or topic that I've explored while learning Flutter.
 
-## Project Structure
+## 🗂 Project Structure
 The repository is structured as follows:
 
-### 1. Calculator_app
+### 1) Calculator_app
 
 The Calculator App is my first self-study Flutter project, designed as an introductory exploration of Flutter's layout system, basic functionality implementation, and user interface design principles. This simple yet functional calculator app serves as a foundational project for studying Flutter's capabilities and gaining hands-on experience with app development.
 
@@ -49,4 +49,30 @@ Through iterative design and refinement of the calculator app's user interface, 
 - Scientific Functions: In future iterations of the calculator app, I plan to implement advanced mathematical functions, such as square root, exponentiation, trigonometric functions, and more, building upon the foundation provided by the math_expressions package.
 
 - Memory Functionality: Incorporating memory functionality, including memory storage and retrieval operations, will enhance the calculator app's utility for users performing complex calculations.
+</details>
+<br>
+
+### 2) counter_app
+
+The Counter App is a simple yet educational Flutter project designed to deepen my understanding of state management in Flutter applications. By implementing both stateless and stateful widgets, this app serves as a hands-on exploration of the fundamental concepts underlying Flutter development.
+
+<details>
+
+<summary>Key Features</summary>
+
+
+</details>
+
+<details>
+
+<summary>Learning Objectives</summary>
+
+
+
+</details>
+
+<details>
+  <summary>Upcoming Features</summary>
+
+
 </details>
