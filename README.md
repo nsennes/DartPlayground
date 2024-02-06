@@ -60,6 +60,11 @@ The Counter App is a simple yet educational Flutter project designed to deepen m
 
 <summary>Key Features</summary>
 
+- Increment and Decrement: The counter app allows users to increment and decrement a counter value using intuitive buttons.
+
+- Stateless Widget: The initial version of the app utilizes a stateless widget to display the counter value. This implementation provides a static representation of the counter without any internal state management.
+
+- Stateful Widget: In a subsequent iteration, I upgraded the app to use a stateful widget to manage the counter's state. This implementation enables dynamic updates to the counter value in response to user interactions.
 
 </details>
 
@@ -67,12 +72,14 @@ The Counter App is a simple yet educational Flutter project designed to deepen m
 
 <summary>Learning Objectives</summary>
 
+- Understanding State Management: Through the development of the counter app, I aimed to gain a deeper understanding of state management in Flutter, particularly the differences between stateless and stateful widgets.
 
 
 </details>
 
 <details>
   <summary>Upcoming Features</summary>
-
+  
+- Improve UI
 
 </details>
