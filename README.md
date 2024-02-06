@@ -52,7 +52,7 @@ Through iterative design and refinement of the calculator app's user interface, 
 </details>
 <br>
 
-### 2) counter_app
+### 2) Counter_app
 
 The Counter App is a simple yet educational Flutter project designed to deepen my understanding of state management in Flutter applications. By implementing both stateless and stateful widgets, this app serves as a hands-on exploration of the fundamental concepts underlying Flutter development.
 
