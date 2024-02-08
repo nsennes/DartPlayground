@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 55,
                   ),
                   Container(
                       padding:
@@ -108,7 +108,6 @@ class _HomePageState extends State<HomePage> {
                         question,
                         style: TextStyle(
                             color: Color.fromARGB(255, 90, 65, 44),
-                            fontFamily: 'Roboto',
                             fontSize: 40,
                             fontWeight: FontWeight.w500),
                       )),
