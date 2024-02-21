@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:text_form_app/pages/submitted.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,44 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String _studentID = '';
   String _email = '';
 
-  void _showSuccessMessage() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          title: Text(
-            'Form Submitted',
-            style: TextStyle(color: Colors.purple[300]),
-            textAlign: TextAlign.center,
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Name: $_name'),
-              SizedBox(height: 5),
-              Text('Student ID: $_studentID'),
-              SizedBox(
-                height: 5,
-              ),
-              Text('Email: $_email'),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Close'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,9 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(4))),
+                  labelText: 'Name',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
@@ -104,15 +69,17 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 20),
               TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Student ID',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(4))),
+                  labelText: 'Student ID',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your student ID';
                   }
-                  if (value.length > 11) {
-                    return 'Student ID should not exceed 11 numbers';
+                  if (value.length != 11) {
+                    return 'Student ID should be exactly 11 numbers';
                   }
                   return null;
                 },
@@ -125,9 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 20),
               TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(4))),
+                  labelText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
@@ -150,7 +119,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    _showSuccessMessage(); // Show success message
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Submitted(
+                          name: _name,
+                          studentID: _studentID,
+                          email: _email,
+                        ),
+                      ),
+                    );
                   }
                 },
                 child: Text('Submit'),
